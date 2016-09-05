@@ -96,6 +96,28 @@ public:
         }
     };
 
+    void Remove(const char* key)
+    {
+        // if it's the head null it
+        int index = (int) Hash((const unsigned char*)key) % ARRAY_SIZE;
+        Node* cursor = &_data[index];
+
+        if(strcmp(cursor->Key(), key) == 0)
+        {
+            cursor->SetValue(NULL);
+            cursor->SetKey("");
+
+            // should really move any linked list
+            // stuff down one
+
+            return;
+        }
+
+
+        // if it's in the linked list, it should
+        // really be remove properly
+    }
+
     void* Get(const char* key)
     {
         int index = (int) Hash((const unsigned char*)key) % ARRAY_SIZE;
